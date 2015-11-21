@@ -2,6 +2,7 @@ package org.fluentlenium.core.wait;
 
 
 import com.google.common.base.Function;
+import com.google.common.base.Predicate;
 import org.fluentlenium.core.Fluent;
 import org.fluentlenium.core.FluentPage;
 import org.fluentlenium.core.search.Search;
@@ -80,7 +81,7 @@ public class FluentWait implements org.openqa.selenium.support.ui.Wait<Fluent> {
      * @param isTrue predicate condition for wait
      * @return fluent wait
      */
-    public FluentWait until(com.google.common.base.Predicate<Fluent> isTrue) {
+    public FluentWait untilPredicate(Predicate<Fluent> isTrue) {
         updateWaitWithDefaultExceptions();
         wait.until(isTrue);
         return this;
